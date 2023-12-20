@@ -65,7 +65,7 @@ const RandomCar = () => {
       </div>
 
       <div className="contact-container">
-        <h2 className='yhteysP'>Ota yhteyttä</h2>
+        <h2 className='yhteysP'>Miellyttikö?</h2>
         
         <p>Kiinnostuitko autosta? Jätä alle yhteystietosi
           niin myyjä on sinuun yhteydessä mahdollisimman pian!
