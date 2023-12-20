@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
+
 function AppNavbar() {
   return (
     <div className="navbar">
@@ -18,6 +19,11 @@ function AppNavbar() {
         </Nav>
 
         <Nav className="cart">
+        <Nav.Link>
+            <Link className="navbarLink" to="/random-car">
+              Päivän auto
+            </Link>
+          </Nav.Link>
           <Nav.Link>
             <Link className="navbarLink" to="/contact">
               Ota yhteyttä

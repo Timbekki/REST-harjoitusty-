@@ -15,6 +15,8 @@ import Contact from "./components/contact";
 import Authorization from "./actioncomponents/Authorization";
 import Register from "./actioncomponents/Register";
 import AddProduct from "./actioncomponents/AddProduct";
+import DailyCar from "./actioncomponents/Randomcar";
+import RandomCar from "./actioncomponents/Randomcar";
 
 function App() {
   const [filters, setFilters] = useState({
@@ -117,6 +119,7 @@ function App() {
               />
               }
             />
+            <Route path="/random-car" element={<RandomCar />} />
             <Route path="" element={<Products filters={filters} />} />
             <Route path="contact"  element={<Contact />} />
             <Route path="login" element={<Authorization />} />

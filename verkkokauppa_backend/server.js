@@ -310,3 +310,54 @@ app.post('/order', async (req, res) => {
       res.status(500).json({ error: err.message });
   }
 });
+
+
+// Endpoint päivän auton arvontaan
+
+app.get('/random-car', async (req, res) => {
+  
+  let connection;
+  try {
+    const connection = await mysql.createConnection(conf);
+    const [result] = await connection.execute('SELECT merkki,malli,image_url FROM product ORDER BY RAND() LIMIT 1');
+    const randomCar = result[0];
+    res.json(randomCar);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
+// Päivän auto toive
+app.post('/toiveet', async (req, res) => {
+  let connection;
+
+  try {
+    connection = await mysql.createConnection(conf);
+    connection.beginTransaction();
+
+    const { name, phoneNumber, car } = req.body;
+
+    // Yhdistä merkki ja malli yhdeksi merkkijonoksi
+    const carDescription = `${car.merkki} ${car.malli}`;
+
+    // Tallenna toive tietokantaan
+    await connection.execute(
+      'INSERT INTO toiveet (name, phoneNumber, carDescription, createdAt) VALUES (?, ?, ?, CURRENT_TIMESTAMP)',
+      [name, phoneNumber, carDescription]
+    );
+
+    connection.commit();
+    res.status(200).json({ message: 'Toive tallennettu!' });
+  } catch (err) {
+    connection.rollback();
+    res.status(500).json({ error: err.message });
+  } finally {
+    if (connection) {
+      await connection.end();
+    }
+  }
+});
+
+
+

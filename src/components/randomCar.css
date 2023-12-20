@@ -1,0 +1,74 @@
+/* RandomCar.css */
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.car-container,
+.contact-container {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  margin: 10px;
+  text-align: center;
+}
+
+.car-image {
+  max-width: 400px;
+  height: 350px;
+}
+
+.pvauto {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+.arpaNappi {
+  margin-top: 15px;
+  background-color: rgb(168, 191, 75);
+}
+
+
+.contact-container form {
+ align-items: self-start;
+}
+
+
+.yhteysP {
+  margin-bottom: 30px;
+}
+
+.contact-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container form label {
+  display: flex;
+  align-items: baseline;
+  
+}
+
+.contact-container form input {
+  padding: 5px;
+  margin-bottom: 10px;
+  
+}
+
+.contact-container form button {
+  padding: 5px;
+}
